@@ -1,0 +1,31 @@
+---
+interface Props {
+  links: Array<{ href: string; label: string; active?: boolean }>;
+  title?: string;
+}
+
+const { links, title } = Astro.props;
+---
+
+<nav>
+  {title && (
+    <div class="nav-container">
+      <div class="nav-title">{title}</div>
+      <ul class="nav-links">
+        {links.map(link => (
+          <li>
+            <a href={link.href} class={link.active ? 'active' : ''}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+  {!title && links.map(link => (
+    <a href={link.href} class={link.active ? 'active' : ''}>
+      {link.label}
+    </a>
+  ))}
+</nav>
+

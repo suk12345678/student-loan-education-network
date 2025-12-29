@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteCard from '../components/SiteCard.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Student Loan Education Network",
+  "url": "https://studentloaneducation.online",
+  "description": "Free educational resources to help you understand student loans",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Student Loan Education Network"
+  }
+};
+---
+
+<BaseLayout 
+  title="Student Loan Education Network | Free Resources to Understand Your Loans"
+  description="Free educational resources to help you understand student loans, make informed decisions, and take control of your financial future."
+  cssFile="landing-page-styles.css"
+  ogTitle="Student Loan Education Network"
+  ogDescription="Free educational resources to help you understand student loans, make informed decisions, and take control of your financial future."
+  ogType="website"
+  ogUrl="https://studentloaneducation.online/"
+  ogImage="https://studentloaneducation.online/og-image.png"
+  structuredData={structuredData}
+>
+    <header>
+        <div class="container">
+            <h1>Student Loan Education Network</h1>
+            <p class="tagline">Fighting systemic opacity, one explanation at a time</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Understanding Student Loans Shouldn't Be This Hard</h2>
+                <p class="hero-text">We break down the confusing parts of student loans into clear, actionable information. No jargon. No hidden agendas. Just honest education.</p>
+            </div>
+        </section>
+
+        <section class="sites-grid">
+            <div class="container">
+                <h2>Explore Our Free Resources</h2>
+                
+                <SiteCard
+                  icon="mdi:calendar-month"
+                  title="Loan Disbursement Explained"
+                  description="Why does your loan money arrive in stages? Understand disbursement timing, holds, and what to expect."
+                  href="https://disbursement.studentloaneducation.online"
+                  cardClass="disbursement"
+                />
+
+                <SiteCard
+                  icon="mdi:currency-usd"
+                  title="Student Loan Interest Explained"
+                  description="Why does your balance keep growing? Learn how interest works, capitalization, and how to minimize costs."
+                  href="https://interest.studentloaneducation.online"
+                  cardClass="interest"
+                />
+
+                <SiteCard
+                  icon="mdi:bullseye-arrow"
+                  title="Hybrid Loan Payoff Strategy"
+                  description="Avalanche vs Snowball? Discover the hybrid approach that combines the best of both methods."
+                  href="https://payoff.studentloaneducation.online"
+                  cardClass="payoff"
+                />
+
+                <SiteCard
+                  icon="mdi:account-multiple"
+                  title="Parent PLUS Loans Explained"
+                  description="Should parents take out loans? Understand the risks, benefits, and alternatives to Parent PLUS loans."
+                  href="https://parentplus.studentloaneducation.online"
+                  cardClass="parentplus"
+                />
+
+                <SiteCard
+                  icon="mdi:book-open-page-variant"
+                  title="Semester Loan Planning"
+                  description="How much should you borrow each semester? Plan your borrowing strategy across all four years."
+                  href="https://planning.studentloaneducation.online"
+                  cardClass="planning"
+                />
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Take Control?</h2>
+                <p>Use our free calculator to plan your student loan repayment strategy</p>
+                <a href="https://www.itsyourincome.com" class="cta-button">Try Our Free Calculator</a>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h2>Why We Exist</h2>
+                <p>Student loan systems are deliberately opaque. Terms are confusing. Processes are unclear. Consequences are hidden.</p>
+                <p>We believe students and families deserve clear, honest information to make informed decisions about their financial futures.</p>
+                <p><strong>Our mission:</strong> Break down every confusing aspect of student loans into simple, actionable knowledge.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Part of the <a href="https://www.itsyourincome.com">ItsYourIncome.com</a> family of financial education tools</p>
+        <p>&copy; 2025 Student Loan Education Network. All rights reserved.</p>
+    </footer>
+</BaseLayout>
+

@@ -1,0 +1,65 @@
+---
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  cssFile?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogType?: string;
+  ogUrl?: string;
+  ogSiteName?: string;
+  ogImage?: string;
+  structuredData?: object;
+}
+
+const {
+  title,
+  description,
+  cssFile,
+  ogTitle,
+  ogDescription,
+  ogType = 'website',
+  ogUrl,
+  ogSiteName,
+  ogImage,
+  structuredData
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <GoogleAnalytics />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+
+    <!-- Open Graph Meta Tags -->
+    {ogTitle && <meta property="og:title" content={ogTitle} />}
+    {ogDescription && <meta property="og:description" content={ogDescription} />}
+    {ogType && <meta property="og:type" content={ogType} />}
+    {ogUrl && <meta property="og:url" content={ogUrl} />}
+    {ogSiteName && <meta property="og:site_name" content={ogSiteName} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter Card Meta Tags -->
+    {ogTitle && <meta name="twitter:card" content="summary_large_image" />}
+    {ogTitle && <meta name="twitter:title" content={ogTitle} />}
+    {ogDescription && <meta name="twitter:description" content={ogDescription} />}
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+    {structuredData && (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )}
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {cssFile && <link rel="stylesheet" href={`/${cssFile}`} />}
+</head>
+<body>
+    <slot />
+</body>
+</html>
+
