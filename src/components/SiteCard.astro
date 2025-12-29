@@ -1,0 +1,147 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  href: string;
+  cardClass: string;
+}
+
+const { icon, title, description, href, cardClass } = Astro.props;
+---
+
+<div class={`site-card ${cardClass}`}>
+  <div class="card-icon">
+    <i class={`mdi ${icon}`}></i>
+  </div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <a href={href} class="card-link">Explore →</a>
+</div>
+
+<style>
+  .site-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 4px solid #2563eb;
+  }
+
+  .site-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+
+  .site-card.disbursement {
+    border-left-color: #10b981;
+  }
+
+  .site-card.interest {
+    border-left-color: #f59e0b;
+  }
+
+  .site-card.payoff {
+    border-left-color: #8b5cf6;
+  }
+
+  .site-card.parentplus {
+    border-left-color: #ec4899;
+  }
+
+  .site-card.planning {
+    border-left-color: #06b6d4;
+  }
+
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #2563eb;
+  }
+
+  .disbursement .card-icon {
+    color: #10b981;
+  }
+
+  .interest .card-icon {
+    color: #f59e0b;
+  }
+
+  .payoff .card-icon {
+    color: #8b5cf6;
+  }
+
+  .parentplus .card-icon {
+    color: #ec4899;
+  }
+
+  .planning .card-icon {
+    color: #06b6d4;
+  }
+
+  .site-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+  }
+
+  .site-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-link {
+    display: inline-block;
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .card-link:hover {
+    color: #1d4ed8;
+  }
+
+  .disbursement .card-link {
+    color: #10b981;
+  }
+
+  .disbursement .card-link:hover {
+    color: #059669;
+  }
+
+  .interest .card-link {
+    color: #f59e0b;
+  }
+
+  .interest .card-link:hover {
+    color: #d97706;
+  }
+
+  .payoff .card-link {
+    color: #8b5cf6;
+  }
+
+  .payoff .card-link:hover {
+    color: #7c3aed;
+  }
+
+  .parentplus .card-link {
+    color: #ec4899;
+  }
+
+  .parentplus .card-link:hover {
+    color: #db2777;
+  }
+
+  .planning .card-link {
+    color: #06b6d4;
+  }
+
+  .planning .card-link:hover {
+    color: #0891b2;
+  }
+</style>
+
